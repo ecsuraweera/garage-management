@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
 
+    customerId : {
+        type : String,
+        unique : true,
+        required : true
+    },
     email : {
         type : String,
         required : true,
@@ -33,11 +38,33 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
+    whatsAppNo: {
+        type : String,
+        required : true
+    },
     profilePicture : {
         type : String,
         required : true,
         default : "https://www.shutterstock.com/image-vector/user-profile-icon-vector-avatar-600nw-2247726673.jpg"
+    },
+    eidNumber : {
+        type : String,
+        unique: true,
+        minlength: 8,
+        maxlength: 20
+        
+    },
+    customerLocation: {
+        latitude: {
+          type: Number,
+          required: false
+        },
+        longitude: {
+          type: Number,
+          required: false
+        }
     }
+    
 
 });
 
